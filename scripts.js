@@ -21,16 +21,22 @@ form.addEventListener("submit", handleSubmit);
 
 let books = [
   {
-    author: "Michael Draxlbaue",
-    title: "American Studies in Austria",
-    pages: 350,
+    author: "Anthony Burgess",
+    title: "A Clockwork Orange",
+    pages: 160,
     read: false,
   },
   {
-    author: "Gyula László",
-    title: "1910-ben szulettem",
-    pages: 255,
-    read: false,
+    author: "Aldous Huxley",
+    title: "Brave New World",
+    pages: 201,
+    read: true,
+  },
+  {
+    author: "Jack London",
+    title: "The Call Of The Wild",
+    pages: 201,
+    read: true,
   },
 ];
 
@@ -55,19 +61,36 @@ function createBooksHtmlContent() {
     .map(
       (book) =>
         `<div class="book-instance">
-                <p>
-                Author: ${book.author}
+                <p class='book-instance-read-status'>${
+                  book.read ? "Read" : "Not Read Yet"
+                }</p>
+                <p class="book-instance-small-text">
+                Author: 
                 </p>
-                <p>
-                Title: ${book.title} 
+                <h4 class='book-instance-title-text'>
+                ${book.author}
+                </h4>
+                <p class="book-instance-small-text">
+                Title:
                 </p>
-                <p>
-                Pages: ${book.pages}
+                <h4 class='book-instance-title-text'>
+                ${book.title}
+                </h4>
+                <p class="book-instance-small-text">
+                Pages:
                 </p>
-                </p>${book.read ? "Read" : "Not Read Yet"}</p>
+                <h4 class='book-instance-title-text'>
+                ${book.pages}
+                </h4>
+                <button onclick='deleteBook("${
+                  book.title
+                }")'>Delete Book</button>
                 <button onclick='toggleBookRead("${book.title}")'>${
           book.read ? "Marks as unread" : "Marks as read"
         }</button>
+        
+                
+                
                 </div>`
     )
     .join("");
@@ -81,6 +104,12 @@ function toggleBookRead(title) {
   books = books.map((book) =>
     book.title === title ? { ...book, read: !book.read } : book
   );
+  renderBooks();
+}
+
+function deleteBook(title) {
+  books = books.filter((book) => book.title !== title);
+
   renderBooks();
 }
 

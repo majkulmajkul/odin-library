@@ -1,6 +1,21 @@
 body{
-    height: 100vh;
-    background-color: aquamarine;
+    
+    background-color: #fdfffc;
+    color: #011627;
+    font-family: 'Roboto', sans-serif;
+
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2rem 0 2rem;
+} 
+
+.books-container{
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+
 }
 
 .modal{
@@ -15,20 +30,95 @@ body{
     width: 400px;
     /* eddig */
     z-index: 1;
-    border-radius: 0.25rem;
-    background-color: antiquewhite;
+    border-radius: 0.5rem;
+    background-color: #fdfffc;
     padding: 2rem;
+    border-left: 1rem solid #e71d36;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     
 }
 
 .book-instance{
-    border: 1px solid black;
+    border-left: 1rem solid #ff9f1c;
+    border-radius: 0.5rem;
     margin-bottom: 1rem;
     padding: 1rem;
+    max-width: 50%;
+
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-input,
+.book-instance-small-text{
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+.book-instance-title-text{
+    margin-top: 0;
+}
+
+.book-instance-read-status{
+    padding: 0.5rem;
+    border: 0.125rem solid #e71d36;
+    display: inline-block;
+    border-radius: 0.25rem;
+    text-align: center;
+
+}
+
+
 label{
     display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+
+
+
+input{
+    
+    height: 1.4rem;
+    border-radius: 0.25rem;
+    border: 0.125rem solid #ff9f1c;
+    outline: none;
+  
+    
+}
+
+input[type=text], input[type=number] {
+    margin-top: 0.25rem;
+
+}
+
+
+input[type=text]{
+
+    width: 100%;
+    margin-bottom: 1rem;
+    
+}
+
+.radio-container{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: grid;
+    grid-template-columns: 4rem 4rem;
+    align-items: center;
+    gap: 0.5em;
+}
+
+
+
+
+
+
+button{
+    background-color: #2ec4b6;
+    padding: 1rem 2rem 1rem 2rem;
+    font-size: 1.2rem;
+    color: #fdfffc;
+    font-weight: 600;
+    border: none;
+    border-radius: 0.5rem;
 }
