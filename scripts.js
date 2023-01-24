@@ -29,24 +29,9 @@ openButton.addEventListener("click", toggleModal);
 form.addEventListener("submit", handleSubmit);
 
 let books = [
-  {
-    author: "Anthony Burgess",
-    title: "A Clockwork Orange",
-    pages: 160,
-    read: false,
-  },
-  {
-    author: "Aldous Huxley",
-    title: "Brave New World",
-    pages: 201,
-    read: true,
-  },
-  {
-    author: "Jack London",
-    title: "The Call Of The Wild",
-    pages: 201,
-    read: true,
-  },
+  new Book("Anthony Burgess", "A Clockwork Orange", 160, false),
+  new Book("Aldous Huxley", "Brave New World", 201, true),
+  new Book("Jack London", "The Call Of The Wild", 232, true),
 ];
 
 function handleSubmit(event) {
@@ -55,12 +40,11 @@ function handleSubmit(event) {
   const title = titleInput.value;
   const pages = pagesInput.value;
   const read = readInput.checked;
-  books.push({
-    author: author,
-    title: title,
-    pages: pages,
-    read: read,
-  });
+
+  const newBook = new Book(author, title, pages, read);
+
+  books.push(newBook);
+
   renderBooks();
   toggleModal();
 }
