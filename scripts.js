@@ -9,6 +9,15 @@ const readInput = document.querySelector("#read-true");
 const notReadInput = document.querySelector("#read-false");
 const booksContainer = document.querySelector(".books-container");
 
+class Book {
+  constructor(author, title, pages, read) {
+    (this.author = author),
+      (this.title = title),
+      (this.pages = pages),
+      (this.read = read);
+  }
+}
+
 function toggleModal() {
   modal.style.visibility === "hidden"
     ? (modal.style.visibility = "visible")
